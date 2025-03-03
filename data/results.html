@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты теста</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Центрирование по левому краю */
+        }
+        h1 {
+            color: #333;
+        }
+        .result {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Результаты теста</h1>
+    <div class="result">
+        <p>Ваши ответы:</p>
+        <p>Вопрос 1: <span id="answer1"></span></p>
+        <p>Вопрос 2: <span id="answer2"></span></p>
+    </div>
+
+    <button onclick="window.location.href='test1.html'">Вернуться к Вопросу 1</button>
+    <button onclick="window.location.href='test2.html'">Вернуться к Вопросу 2</button>
+
+    <script>
+        document.getElementById('answer1').textContent = localStorage.getItem('answer1') || 'Не отвечено';
+        document.getElementById('answer2').textContent = localStorage.getItem('answer2') || 'Не отвечено';
+    </script>
+</body>
+</html>

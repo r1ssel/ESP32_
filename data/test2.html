@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест по JavaScript - Вопрос 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Центрирование по левому краю */
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Вопрос 2</h1>
+    <form id="quizForm2">
+        <label>Какой метод используется для добавления обработчика событий?</label>
+        <input type="radio" name="question2" value="addEventListener"> addEventListener<br>
+        <input type="radio" name="question2" value="attachEvent"> attachEvent<br>
+        <input type="radio" name="question2" value="onClick"> onClick<br>
+        <button type="submit">Далее</button>
+    </form>
+
+    <script>
+        document.getElementById('quizForm2').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы
+            const selectedAnswer = document.querySelector('input[name="question2"]:checked');
+            if (selectedAnswer) {
+                localStorage.setItem('answer2', selectedAnswer.value); // Сохраняем ответ в localStorage
+                window.location.href = 'results.html'; // Перенаправляем на страницу результатов
+            } else {
+                alert('Пожалуйста, выберите ответ.'); // Уведомление о необходимости выбора ответа
+            }
+        });
+    </script>
+</body>
+</html>

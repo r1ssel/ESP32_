@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест по JavaScript - Вопрос 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Центрирование по левому краю */
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+            line-height: 2;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Вопрос 1</h1>
+    <form id="quizForm">
+        <label>Какой метод используется для выбора элемента по ID?</label>
+        <input type="radio" name="question1" value="getElementById"> getElementById<br>
+        <input type="radio" name="question1" value="querySelector"> querySelector<br>
+        <input type="radio" name="question1" value="getElementsByClassName"> getElementsByClassName<br>
+        <button type="submit">Далее</button>
+    </form>
+
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы
+            const selectedAnswer = document.querySelector('input[name="question1"]:checked');
+            if (selectedAnswer) {
+                localStorage.setItem('answer1', selectedAnswer.value); // Сохраняем ответ в localStorage
+                window.location.href = 'test2.html'; // Перенаправляем на следующую страницу теста
+            } else {
+                alert('Пожалуйста, выберите ответ.'); // Уведомление о необходимости выбора ответа
+            }
+        });
+    </script>
+</body>
+</html>
